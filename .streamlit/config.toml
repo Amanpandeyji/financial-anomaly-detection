@@ -1,0 +1,17 @@
+[streamlit]
+# Keep these in sync with your model's expected contamination default
+# Override via environment variables in production
+
+[server]
+headless      = true
+enableCORS    = false
+enableXsrfProtection = true
+port          = 8501
+
+[theme]
+base          = "light"
+primaryColor  = "#1a3c6e"
+backgroundColor       = "#ffffff"
+secondaryBackgroundColor = "#f7f9fc"
+textColor     = "#1a1a1a"
+font          = "sans serif"

@@ -1,0 +1,55 @@
+[build-system]
+requires      = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name            = "financial-anomaly-detection"
+version         = "1.0.0"
+description     = "AI-Based Financial Transaction Anomaly Detection System"
+readme          = "README.md"
+license         = { text = "MIT" }
+requires-python = ">=3.10"
+
+keywords = [
+    "anomaly-detection", "machine-learning", "fraud-detection",
+    "isolation-forest", "one-class-svm", "local-outlier-factor",
+    "streamlit", "scikit-learn",
+]
+
+dependencies = [
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "scikit-learn>=1.3.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "streamlit>=1.28.0",
+    "plotly>=5.17.0",
+    "joblib>=1.3.0",
+]
+
+[project.scripts]
+# Run the CLI from anywhere after `pip install -e .`
+anomaly-detect = "main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.setuptools.package-dir]
+"" = "."
+
+# ── Linting (ruff) ────────────────────────────────────────────────────────
+[tool.ruff]
+line-length    = 100
+target-version = "py310"
+exclude        = ["notebooks/", ".venv/", "build/"]
+
+[tool.ruff.lint]
+select  = ["E", "F", "W", "I"]
+ignore  = ["E501"]   # line-length handled above
+
+# ── Type checking (mypy) ──────────────────────────────────────────────────
+[tool.mypy]
+python_version         = "3.10"
+ignore_missing_imports = true
+warn_return_any        = false

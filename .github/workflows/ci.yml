@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  test:
+    name: Lint & Smoke Test
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── Checkout ───────────────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── Python setup ───────────────────────────────────────────────────
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      # ── Dependencies ───────────────────────────────────────────────────
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # ── Syntax check ───────────────────────────────────────────────────
+      - name: Syntax check all Python files
+        run: |
+          python -m py_compile src/data_preprocessing.py
+          python -m py_compile src/feature_engineering.py
+          python -m py_compile src/anomaly_detection.py
+          python -m py_compile main.py
+          python -m py_compile data/generate_data.py
+          python -m py_compile dashboard/app.py
+          echo "All syntax checks passed."
+
+      # ── Generate sample data ───────────────────────────────────────────
+      - name: Generate sample dataset
+        run: python data/generate_data.py
+
+      # ── End-to-end pipeline smoke test ────────────────────────────────
+      - name: Run anomaly detection pipeline
+        run: python main.py --no-plot
+
+      # ── Compare all models ─────────────────────────────────────────────
+      - name: Compare all three models
+        run: python main.py --compare --no-plot
+
+      # ── Upload results as artifact ─────────────────────────────────────
+      - name: Upload detection results
+        uses: actions/upload-artifact@v4
+        with:
+          name: detection-results
+          path: results/
+          retention-days: 7
