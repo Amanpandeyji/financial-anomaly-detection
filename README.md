@@ -1,10 +1,6 @@
 #AI-Based Financial Transaction Anomaly Detection System
 A production-ready machine learning system that detects unusual or suspicious financial transactions using three unsupervised anomaly detection algorithms.
 
-> **Live demo** → deploy to [Streamlit Community Cloud](https://streamlit.io/cloud) in one click (see [Deployment](#-deployment) section below).
-
----
-
 ## Project Structure
 
 ```
