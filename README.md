@@ -1,4 +1,4 @@
-#AI-Based Financial Transaction Anomaly Detection System
+AI-Based Financial Transaction Anomaly Detection System
 A production-ready machine learning system that detects unusual or suspicious financial transactions using three unsupervised anomaly detection algorithms.
 
 ## Project Structure
