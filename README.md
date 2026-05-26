@@ -1,17 +1,11 @@
-# 🔍 AI-Based Financial Transaction Anomaly Detection System
-
-![CI](https://github.com/<YOUR_USERNAME>/financial-anomaly-detection/actions/workflows/ci.yml/badge.svg)
-![Python](https://img.shields.io/badge/python-3.10%2B-blue?logo=python)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-FF4B4B?logo=streamlit)
-![License](https://img.shields.io/badge/license-MIT-green)
-
+#AI-Based Financial Transaction Anomaly Detection System
 A production-ready machine learning system that detects unusual or suspicious financial transactions using three unsupervised anomaly detection algorithms.
 
 > **Live demo** → deploy to [Streamlit Community Cloud](https://streamlit.io/cloud) in one click (see [Deployment](#-deployment) section below).
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 financial-anomaly-detection/
@@ -48,7 +42,7 @@ financial-anomaly-detection/
 
 ---
 
-## ⚡ Quick Start
+##  Quick Start
 
 ### 1. Install dependencies
 
@@ -100,7 +94,7 @@ jupyter notebook notebooks/analysis.ipynb
 
 ---
 
-## 🧠 Models
+##  Models
 
 | Model | Technique | Best For |
 |-------|-----------|----------|
@@ -110,7 +104,7 @@ jupyter notebook notebooks/analysis.ipynb
 
 ---
 
-## 🔧 Feature Engineering
+## Feature Engineering
 
 | Feature | Description |
 |---------|-------------|
@@ -128,7 +122,7 @@ jupyter notebook notebooks/analysis.ipynb
 
 ---
 
-## 📊 Dashboard Tabs
+##  Dashboard Tabs
 
 | Tab | Content |
 |-----|---------|
@@ -140,7 +134,7 @@ jupyter notebook notebooks/analysis.ipynb
 
 ---
 
-## 🎯 Outputs
+## Outputs
 
 After running the pipeline you will find:
 
@@ -151,7 +145,7 @@ After running the pipeline you will find:
 
 ---
 
-## 📈 Accuracy Improvement Suggestions
+## Accuracy Improvement Suggestions
 
 1. **Real labelled dataset** — replace synthetic data with a real fraud dataset (e.g., [Kaggle Credit Card Fraud](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)) for proper supervised evaluation.
 2. **Supervised second layer** — once labels exist, train XGBoost/LightGBM on the `risk_score` + features for a hybrid model.
@@ -164,7 +158,7 @@ After running the pipeline you will find:
 
 ---
 
-## 🛡️ Security Notes
+## Security Notes
 
 - Never store actual customer PII in the CSV without encryption at rest.
 - Treat `models/*.pkl` files as sensitive; validate their integrity before loading in production.
@@ -172,7 +166,7 @@ After running the pipeline you will find:
 
 ---
 
-## 📦 Requirements
+## Requirements
 
 ```
 pandas>=2.0.0
@@ -187,7 +181,7 @@ joblib>=1.3.0
 
 ---
 
-## � Deployment
+## Deployment
 
 ### Option A — Streamlit Community Cloud (free, recommended)
 
@@ -218,23 +212,3 @@ pip install -e .
 anomaly-detect            # runs the CLI
 streamlit run dashboard/app.py
 ```
-
----
-
-## 🤝 Contributing
-
-1. Fork the repo and create a feature branch: `git checkout -b feature/your-idea`
-2. Make your changes, ensure `py main.py --no-plot` still passes.
-3. Open a Pull Request — the CI workflow will run automatically.
-
----
-
-## 📜 License
-
-This project is released under the [MIT License](https://opensource.org/licenses/MIT).
-
----
-
-## �👨‍💻 Author Note
-
-> *Developed a machine learning system using Isolation Forest (and two additional algorithms) to detect anomalous financial transactions. Performed transaction pattern analysis and anomaly detection using Python and scikit-learn.*
